@@ -1,11 +1,17 @@
 {
-  "name": "asil/vkmarket",
-  "description": "The PHP library for work with VK Market API",
+  "name": "rud99/vkmarket",
+  "description": "This is a fork of the PHP library (Author Anton Silischev) for work with VK Market API",
   "keywords": ["vk", "vk.com", "api", "market"],
   "license": "MIT",
   "authors": [
     {
       "name": "Anton Silischev"
+    },
+    {
+      "name": "Mikhail Zakharov",
+      "email": "mz-83@mail.ru",
+      "homepage": "https://dev.to/rud99",
+      "role": "Developer"
     }
   ],
   "require": {
