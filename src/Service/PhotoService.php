@@ -84,7 +84,7 @@ class PhotoService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'group_id' => $this->connection->getGroupId(),
             'main_photo' => $mainPhoto,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         if ($mainPhoto) {
@@ -131,7 +131,7 @@ class PhotoService extends BaseService
             'hash' => $pictureParams['hash'],
             'crop_data' => $mainPhoto ? $pictureParams['crop_data'] : '',
             'crop_hash' => $mainPhoto ? $pictureParams['crop_hash'] : '',
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('photos.saveMarketPhoto', $arr);
@@ -163,7 +163,7 @@ class PhotoService extends BaseService
             'photo' => $pictureParams['photo'],
             'server' => $pictureParams['server'],
             'hash' => $pictureParams['hash'],
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('photos.saveMarketAlbumPhoto', $arr);
@@ -183,7 +183,7 @@ class PhotoService extends BaseService
         $arr = [
             'access_token' => $this->connection->getAccessToken(),
             'group_id' => $this->connection->getGroupId(),
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $url = $this->connection->getRequest('photos.getMarketAlbumUploadServer', $arr);

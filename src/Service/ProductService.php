@@ -31,7 +31,7 @@ class ProductService extends BaseService
             'deleted' => $product->getAvailability(),
             'main_photo_id' => $photoService->uploadMainPhoto($photo),
             'photo_ids' => $photoService->uploadAdditionalPhotos($photo),
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.add', $arr);
@@ -65,7 +65,7 @@ class ProductService extends BaseService
                 $product->getVkItemMainPhotoId() : $photoService->uploadMainPhoto($photo),
             'photo_ids' => ((!$photo || !sizeof($photo->getAdditionalPhotoParams())) && $product->getVkItemAdditionalPhotoIds() !== null) ?
                 $product->getVkItemAdditionalPhotoIds() : $photoService->uploadAdditionalPhotos($photo),
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.edit', $arr);
@@ -86,7 +86,7 @@ class ProductService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'owner_id' => '-' . $this->connection->getGroupId(),
             'item_id' => $id,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.delete', $arr);
@@ -107,7 +107,7 @@ class ProductService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'owner_id' => '-' . $this->connection->getGroupId(),
             'item_id' => $id,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.restore', $arr);
@@ -129,7 +129,7 @@ class ProductService extends BaseService
             'item_ids' => '-' . $this->connection->getGroupId() . '_' . $id,
             'owner_id' => '-' . $this->connection->getGroupId(),
             'extended' => 1,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.getById', $arr);
@@ -188,7 +188,7 @@ class ProductService extends BaseService
             'count' => $count,
             'offset' => $offset,
             'extended' => 1,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.get', $arr);
@@ -247,7 +247,7 @@ class ProductService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'count' => $count,
             'offset' => $offset,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.getCategories', $arr);

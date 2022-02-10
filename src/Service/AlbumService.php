@@ -25,7 +25,7 @@ class AlbumService extends BaseService
             'title' => $album->getTitle(),
             'photo_id' => ($photo && strlen($photo->getAlbumPhotoParams()) > 0 && $photoService) ? $photoService->uploadAlbumPhoto($photo) : '',
             'main_album' => $album->getMainAlbum(),
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.addAlbum', $arr);
@@ -51,7 +51,7 @@ class AlbumService extends BaseService
             'title' => $album->getTitle(),
             'photo_id' => $photo && $photoService ? $photoService->uploadAlbumPhoto($photo) : $album->getPhotoId(),
             'main_album' => $album->getMainAlbum(),
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.editAlbum', $arr);
@@ -74,7 +74,7 @@ class AlbumService extends BaseService
             'owner_id' => '-' . $this->connection->getGroupId(),
             'item_id' => $itemId,
             'album_ids' => $albumIds,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.addToAlbum', $arr);
@@ -95,7 +95,7 @@ class AlbumService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'owner_id' => '-' . $this->connection->getGroupId(),
             'album_ids' => [$albumId],
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.getAlbumById', $arr);
@@ -124,7 +124,7 @@ class AlbumService extends BaseService
             'access_token' => $this->connection->getAccessToken(),
             'owner_id' => '-' . $this->connection->getGroupId(),
             'album_id' => $albumId,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.deleteAlbum', $arr);
@@ -147,7 +147,7 @@ class AlbumService extends BaseService
             'owner_id' => '-' . $this->connection->getGroupId(),
             'count' => $count,
             'offset' => $offset,
-            'v' => VkConnect::API_VERSION,
+            'v' => VkConnect::$apiVersion,
         ];
 
         $content = $this->connection->getRequest('market.getAlbums', $arr);

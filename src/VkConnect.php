@@ -3,8 +3,9 @@ namespace Asil\VkMarket;
 
 class VkConnect
 {
-    const API_VERSION = '5.65';
     const CONN_URL = 'https://api.vk.com/method/';
+
+    public static $apiVersion;
 
     private $accessToken;
     private $ownerId;
@@ -14,11 +15,13 @@ class VkConnect
      * VkConnect constructor.
      *
      * @param $accessToken
+     * @param $apiVersion
      * @param $groupId
      * @param $ownerId
      */
-    public function __construct($accessToken, $groupId, $ownerId)
+    public function __construct($accessToken, $apiVersion, $groupId, $ownerId)
     {
+        self::$apiVersion = $apiVersion;
         $this->accessToken = $accessToken;
         $this->ownerId = $ownerId;
         $this->groupId = $groupId;
